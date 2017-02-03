@@ -1,0 +1,15 @@
+{
+  "name": "gnucash-reporter",
+  "version": "0.0.1-alpha",
+  "description": "Shows informational reports about GnuCash data.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "Aaron Lenoir",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^1.4.15"
+  }
+}
