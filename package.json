@@ -4,12 +4,14 @@
   "description": "Shows informational reports about GnuCash data.",
   "main": "src/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "test": "./node_modules/mocha/bin/mocha src/test"
   },
   "keywords": [],
   "author": "Aaron Lenoir",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^1.4.15"
+    "electron": "^1.4.15",
+    "mocha": "^3.2.0"
   }
 }
