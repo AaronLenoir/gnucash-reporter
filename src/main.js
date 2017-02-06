@@ -1,5 +1,5 @@
 const electron = require("electron");
-const gnucash = require("./lib/gnucash-reader");
+const gnucash = require("./lib/gnucash/reader.js");
 
 const { app, BrowserWindow } = electron;
 
@@ -14,10 +14,8 @@ app.on("ready", function () {
     mainWindow = null;
   });
 
-  var gcFile = new gnucash.Reader("/some/location/for/the/file.gnucash");
-
-  console.log(gcFile.GetSummaryTotals());
-  console.log(gcFile.GetAllExpenses());
+  var reader = gnucash.CreateReader("/some/path");
+  console.log(reader.GetSummary().totals);
 });
 
 require('electron-reload')(__dirname);
