@@ -9,7 +9,11 @@ var Reader = function (path) {
   this.data = data.CreateData(path);
 }
 
-Reader.prototype.GetSummary = function() {
+Reader.prototype.GetAccounts = function () {
+  return this.data.GetAllAccounts();
+}
+
+Reader.prototype.GetSummary = function () {
   return summary.CreateSummary(this);
 }
 
