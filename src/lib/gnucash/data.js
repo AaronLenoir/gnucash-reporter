@@ -45,7 +45,7 @@ Data.prototype.GetAllAccounts = function () {
     let childrenResult = [];
     for (let i = 0; i < data.length; i++) {
       if (data[i].parent_guid === parentGuid) {
-        childrenResult.push({guid: data[i].guid});
+        childrenResult.push(data[i]);
         childrenResult[childrenResult.length-1].children = getChildren(data, data[i].guid);
       }
     }

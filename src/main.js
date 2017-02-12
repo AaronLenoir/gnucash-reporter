@@ -24,7 +24,7 @@ app.on("ready", function () {
 var printAccounts = function (accounts, acc) {
   for (let i = 0; i < accounts.length; i++) {
     console.log(acc);
-    console.log(accounts[i].guid);
+    console.log(accounts[i].name);
     printAccounts(accounts[i].children, acc + 1);
   }
 };
