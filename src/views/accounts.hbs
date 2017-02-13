@@ -1,0 +1,12 @@
+<div>
+  {{#each this}}
+    <ul>
+    {{#each children}}
+      <li class="account">
+        <span class="account-title">{{description}}</span>
+        <div class="account-details">{{formatNumber balance style="currency" currency="EUR"}}</div>
+      </li>
+    {{/each}}
+    </ul>
+  {{/each}}
+</div>

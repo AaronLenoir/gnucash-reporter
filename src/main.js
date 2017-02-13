@@ -6,19 +6,21 @@ const { app, BrowserWindow } = electron;
 let mainWindow;
 
 app.on("ready", function () {
-  //mainWindow = new BrowserWindow();
+  mainWindow = new BrowserWindow();
 
-  //mainWindow.loadURL(`file://${__dirname}/main.html`);
+  mainWindow.loadURL(`file://${__dirname}/main.html`);
 
-  // mainWindow.on("close", function () {
-  //  mainWindow = null;
-  //});
+  mainWindow.webContents.openDevTools();
 
-  var reader = gnucash.CreateReader(`${__dirname}/example.gnucash`);
-  console.log(reader.GetSummary().totals);
+  mainWindow.on("close", function () {
+    mainWindow = null;
+  });
 
-  let accounts = reader.GetAccounts();
-  printAccounts(accounts, 0);
+  //var reader = gnucash.CreateReader(`${__dirname}/example.gnucash`);
+  //console.log(reader.GetSummary().totals);
+
+  //let accounts = reader.GetAccounts();
+  //printAccounts(accounts, 0);
 });
 
 var printAccounts = function (accounts, acc) {

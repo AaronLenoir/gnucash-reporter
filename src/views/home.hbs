@@ -1,0 +1,26 @@
+<i>Home content.</i>
+
+<div id="viz">
+</div>
+
+<script>
+  var app = require("./lib/app");
+  var View = require("./lib/view");
+
+  app.on("reader-ready", function (reader) {
+    console.log("reader ready");
+    var accounts = reader.GetAccounts();
+    showAccountTree(accounts);
+  });
+
+  // Put this in lib:
+  function showAccountTree(accounts) {
+    console.log(accounts);
+    var view = new View("accounts");
+    view.toHtml(accounts, function (html) {
+      $("#viz").html(html);
+    });
+  }
+
+  app.emit("request-reader");
+</script>
