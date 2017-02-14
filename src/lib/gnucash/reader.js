@@ -1,12 +1,11 @@
-// GnuCash file Reader
-
 const data = require("./data.js");
 const summary = require("./summary.js");
 
 var Reader = function (path) {
-  this.path = path;
+  let self = this;
 
-  this.data = data.CreateData(path);
+  self.path = path;
+  self.data = data.CreateData(path);
 }
 
 Reader.prototype.GetAccounts = function () {

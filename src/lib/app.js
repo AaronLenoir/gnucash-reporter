@@ -1,24 +1,20 @@
-var Emitter = require("events").EventEmitter;
-var util = require("util");
-var View = require("./view");
-var gnucash = require("./gnucash/reader.js");
+const Emitter = require("events").EventEmitter;
+const gnucash = require("./gnucash/reader.js");
+const util = require("util");
+const View = require("./view");
 
-var App = function(){
+const App = function(){
   var self = this;
 
-  self.on("hello", function () {
-    console.log("Received 'hello' from view.");
-  });
-
   self.on("open-view", function (name, data) {
-    var view = new View(name);
+    let view = new View(name);
     view.toHtml(data, function (html) {
       self.emit("view-rendered", html);
     });
   });
 
   self.on("request-reader", function () {
-    var reader = gnucash.CreateReader(`${__dirname}/../example.gnucash`);
+    let reader = gnucash.CreateReader(`${__dirname}/../example.gnucash`);
     self.emit("reader-ready", reader);
   });
 

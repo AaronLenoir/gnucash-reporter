@@ -1,10 +1,14 @@
 var Summary = function (reader) {
-  this.reader = reader;
+  let self = this;
 
-  this.totals = this.GetTotals();
+  self.reader = reader;
+
+  self.totals = self.GetTotals();
 }
 
 Summary.prototype.GetTotals = function() {
+  let self = this;
+  
   var allTransactions = this.reader.data.GetAllAssetTransactions();
 
   // From data, create summary

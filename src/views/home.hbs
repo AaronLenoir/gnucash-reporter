@@ -8,7 +8,6 @@
   var View = require("./lib/view");
 
   app.on("reader-ready", function (reader) {
-    console.log("reader ready");
     var accounts = reader.GetAccounts();
     showAccountTree(accounts);
   });
