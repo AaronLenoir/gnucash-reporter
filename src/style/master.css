@@ -2,19 +2,48 @@ body {
   font: caption;
 }
 
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  margin: 0;
+
+  width: 42px;
+
+  font-size: 2em;
+  color: #ECECEC;
+  padding-top: 22px;
+  padding-left: 10px;
+
+  background-color: #181818;
+}
+
+#content {
+  margin-left: 60px;
+}
+
+ul {
+  padding: 0;
+}
+
 .account {
   list-style: none;
 
-  height: 2em;
-  margin: .2em;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  padding-left: .6em;
+  height: 40px;
+  padding: 10px;
+  padding-bottom: 2px;
+  margin-bottom: 10px;
 
   color: #666666;
 
   border-radius: .2em;
   border: 1px solid #EFEFEF;
+}
+
+.account:hover {
+  background-color: #EFEFEF;
 }
 
 .account-title {
