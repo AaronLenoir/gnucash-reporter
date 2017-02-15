@@ -1,5 +1,4 @@
 const data = require("./data");
-const summary = require("./summary");
 const balance = require("./balance");
 
 var Reader = function (path) {
@@ -8,7 +7,6 @@ var Reader = function (path) {
   self.path = path;
   self.data = data.CreateData(path);
   self.balance = balance.CreateBalance(self);
-  self.summary = summary.CreateSummary(self);
 }
 
 Reader.prototype.GetAccounts = function () {
