@@ -8,8 +8,6 @@ var Summary = function (reader) {
 
 Summary.prototype.GetTotals = function() {
   let self = this;
-  
-  var allTransactions = this.reader.data.GetAllAssetTransactions();
 
   // From data, create summary
   return [

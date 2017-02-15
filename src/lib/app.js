@@ -5,20 +5,32 @@ const View = require("./view");
 
 const App = function(){
   var self = this;
+  self.reader = gnucash.CreateReader(`${__dirname}/../example.gnucash`);
 
-  self.on("open-view", function (name, data) {
+  self.events = {
+    openView: "open-view",
+    readAccounts: "read-accounts",
+    accountsRead: "accounts-read"
+  };
+
+  self.getReader = function () {
+    return self.reader;
+  };
+
+  self.on(self.events.openView, function (name, data) {
     let view = new View(name);
     view.toHtml(data, function (html) {
       self.emit("view-rendered", html);
     });
   });
 
-  self.on("request-reader", function () {
-    let reader = gnucash.CreateReader(`${__dirname}/../example.gnucash`);
-    self.emit("reader-ready", reader);
+  self.on(self.events.readAccounts, function () {
+    let reader = self.getReader();
+    let accounts = reader.GetAccounts();
+    self.emit(self.events.accountsRead, accounts);
   });
 
-  self.emit("open-view", "home");
+  self.emit(self.events.openView, "home");
 };
 
 util.inherits(App, Emitter);

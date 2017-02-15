@@ -4,22 +4,21 @@
 </div>
 
 <script>
-  var app = require("./lib/app");
-  var View = require("./lib/view");
+  (function () {
+    const app = require("./lib/app");
+    const View = require("./lib/view");
 
-  app.on("reader-ready", function (reader) {
-    var accounts = reader.GetAccounts();
-    showAccountTree(accounts);
-  });
-
-  // Put this in lib:
-  function showAccountTree(accounts) {
-    console.log(accounts);
-    var view = new View("accounts");
-    view.toHtml(accounts, function (html) {
-      $("#viz").html(html);
+    app.on(app.events.accountsRead, function (accounts) {
+      showAccountTree(accounts);
     });
-  }
 
-  app.emit("request-reader");
+    let showAccountTree = function (accounts) {
+      var view = new View("accounts");
+      view.toHtml(accounts, function (html) {
+        $("#viz").html(html);
+      });
+    };
+
+    app.emit(app.events.readAccounts);
+  }());
 </script>

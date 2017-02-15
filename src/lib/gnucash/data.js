@@ -43,25 +43,6 @@ Data.prototype.GetTransactions = function (id) {
   return this.execToObject("select * from transactions inner join splits on transactions.guid = splits.tx_guid where splits.account_guid = \"" + id + "\"");
 };
 
-Data.prototype.CalculateBalance = function (account) {
-  let transactions = this.GetTransactions(account.guid);
-  let result = 0.0;
-  for(let i = 0; i < transactions.length; i++) {
-    let transaction = transactions[i];
-    result += this.getDecimal(transaction.quantity_num, transaction.quantity_denom);
-  }
-
-  console.log(account);
-  for(let i = 0; i < account.children.length; i++) {
-    console.log(account.children[i]);
-    result += this.CalculateBalance(account.children[i]);
-  }
-
-  if (account.account_type === "INCOME") { result *= -1; } /* ?? */
-
-  return result;
-};
-
 Data.prototype.GetAllAccounts = function () {
   let self = this;
 
@@ -72,7 +53,6 @@ Data.prototype.GetAllAccounts = function () {
         var account = data[i];
         account.children = getChildren(data, data[i].guid);
         childrenResult.push(account);
-        account.balance = self.CalculateBalance(account);
       }
     }
 
