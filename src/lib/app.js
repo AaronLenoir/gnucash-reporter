@@ -1,11 +1,11 @@
 const Emitter = require("events").EventEmitter;
-const gnucash = require("./gnucash/reader.js");
+const gnucash = require("./gnucash/gnucash-reader.js");
 const util = require("util");
 const View = require("./view");
 
 const App = function(){
   var self = this;
-  self.reader = gnucash.CreateReader(`${__dirname}/../example.gnucash`);
+  self.reader = gnucash.createReader({path: `${__dirname}/../example.gnucash`});
 
   self.events = {
     openView: "open-view",

@@ -13,11 +13,21 @@ body {
   width: 42px;
 
   font-size: 2em;
-  color: #ECECEC;
-  padding-top: 22px;
+  color: #CCCCCC;
+  padding-top: 15px;
   padding-left: 10px;
 
   background-color: #181818;
+}
+
+.nav-item {
+  border-bottom: 1px solid #282828;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.nav-item:hover {
+  color: #ECECEC;
 }
 
 #content {
