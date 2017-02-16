@@ -1,8 +1,7 @@
-const fs = require('fs')
-    , sql = require('sql.js');
+const fs = require('fs'),
+      sql = require('sql.js');
 
-let db = undefined
-  , lastPath = undefined;
+let db, lastPath;
 
 function openDb(path) {
   if (db === undefined || lastPath !== path) {
@@ -12,6 +11,6 @@ function openDb(path) {
   }
 
   return db;
-};
+}
 
 module.exports.openDb = openDb;

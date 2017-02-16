@@ -1,7 +1,7 @@
-const Emitter = require("events").EventEmitter;
-const gnucash = require("./gnucash/gnucash-reader.js");
-const util = require("util");
-const View = require("./view");
+const Emitter = require("events").EventEmitter,
+      gnucash = require("./gnucash/gnucash-reader.js"),
+      util = require("util"),
+      View = require("./view");
 
 const App = function(){
   var self = this;

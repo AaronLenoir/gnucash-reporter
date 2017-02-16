@@ -21,9 +21,6 @@ function GetAccounts (options) {
 }
 
 module.exports = function (options) {
-  if (!options || !options.path) {
-    throw new Error('Mandatory option "path" missing, should point to a gnucash sqlite file.');
-  }
-
+  // Exports the full account hierarchy.
   return GetAccounts(options);
 };

@@ -14,9 +14,5 @@ Transactions.prototype.find = function (accountGuid) {
 };
 
 module.exports = function (options) {
-  if (!options || !options.path) {
-    throw new Error('Mandatory option "path" missing, should point to a gnucash sqlite file.');
-  }
-
   return new Transactions(options);
 };

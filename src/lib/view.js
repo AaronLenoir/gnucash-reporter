@@ -1,7 +1,7 @@
-var path = require("path");
-var fs = require("fs");
-var Handlebars = require("handlebars");
-var HandlebarsIntl = require('handlebars-helper-intl');
+const path = require("path"),
+      fs = require("fs"),
+      Handlebars = require("handlebars"),
+      HandlebarsIntl = require('handlebars-helper-intl');
 
 HandlebarsIntl.registerWith(Handlebars);
 

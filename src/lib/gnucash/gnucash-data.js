@@ -1,8 +1,8 @@
 'use strict';
 
-const fs = require('fs')
-    , sql = require('sql.js')
-    , db = require('./gnucash-db');
+const fs = require('fs'),
+      sql = require('sql.js'),
+      db = require('./gnucash-db');
 
 function Data (options) {
   let self = this;
@@ -34,7 +34,7 @@ function Data (options) {
 
     return result;
   };
-};
+}
 
 Data.prototype.getAccounts = function () {
   let self = this;

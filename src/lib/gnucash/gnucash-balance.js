@@ -48,9 +48,5 @@ Balance.prototype.getAccountsWithBalance = function () {
 };
 
 module.exports = function (options) {
-  if (!options || !options.path) {
-    throw new Error('Mandatory option "path" missing, should point to a gnucash sqlite file.');
-  }
-
   return new Balance(options).getAccountsWithBalance();
-}
+};
