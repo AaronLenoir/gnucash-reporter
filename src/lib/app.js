@@ -1,16 +1,21 @@
-const Emitter = require("events").EventEmitter,
-      gnucash = require("./gnucash/reader.js"),
-      util = require("util"),
-      View = require("./view");
+const Emitter = require('events').EventEmitter,
+      gnucash = require('./gnucash/reader.js'),
+      openFile = require('./open-file'),
+      settings = require('./settings'),
+      util = require('util'),
+      View = require('./view');
+
+const { dialog } = require('electron').remote;
 
 const App = function(){
   var self = this;
-  self.reader = gnucash.createReader({path: `${__dirname}/../example.gnucash`});
+  self.reader = undefined;// = gnucash.createReader({path: `${__dirname}/../example.gnucash`});
 
   self.events = {
     openView: "open-view",
     readAccounts: "read-accounts",
-    accountsRead: "accounts-read"
+    accountsRead: "accounts-read",
+    openFile: "open-file"
   };
 
   self.getReader = function () {
@@ -30,7 +35,27 @@ const App = function(){
     self.emit(self.events.accountsRead, accounts);
   });
 
-  self.emit(self.events.openView, "home");
+  self.on(self.events.openFile, function () {
+    openFile(self.open);
+  });
+
+  self.open = function (path) {
+    self.reader = gnucash.createReader({path: path});
+    self.emit(self.events.openView, "home");
+    settings.setPreviousFilePath(path);
+  };
+
+  self.init = function () {
+    settings.getPreviousFilePath(function (previousFilePath) {
+      if (previousFilePath) {
+        self.open(previousFilePath);
+      } else {
+        self.emit(self.events.openFile);
+      }
+    });
+  };
+
+  self.init();
 };
 
 util.inherits(App, Emitter);

@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "d3": "^4.5.0",
+    "electron-settings": "^2.2.2",
     "font-awesome": "^4.7.0",
     "handlebars": "^4.0.6",
     "handlebars-helper-intl": "^1.0.0-rc-2",
