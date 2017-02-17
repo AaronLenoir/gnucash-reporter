@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs'),
       sql = require('sql.js');
 

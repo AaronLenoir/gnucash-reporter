@@ -1,3 +1,5 @@
+'use strict';
+
 const Emitter = require('events').EventEmitter,
       gnucash = require('./gnucash/reader.js'),
       openFile = require('./open-file'),
