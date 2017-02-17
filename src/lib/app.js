@@ -9,7 +9,6 @@ const { dialog } = require('electron').remote;
 
 const App = function(){
   var self = this;
-  self.reader = undefined;// = gnucash.createReader({path: `${__dirname}/../example.gnucash`});
 
   self.events = {
     openView: "open-view",
