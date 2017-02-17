@@ -24,3 +24,5 @@ cd gnucash-reporter
 npm install
 npm start
 ```
+
+If it works and runs, it should first ask you to locate a gnucash file. Make sure it's a sqlite gnucash file. There's an example file included in this repository.
