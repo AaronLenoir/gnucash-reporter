@@ -1,13 +1,13 @@
 'use strict';
 
-const math = require('./gnucash-math');
+const math = require('./math');
 
 function Balance (options) {
   let self = this;
 
   self.options = options;
-  self.accounts = require('./gnucash-accounts')(self.options);
-  self.transactions = require('./gnucash-transactions')(self.options);
+  self.accounts = require('./accounts')(self.options);
+  self.transactions = require('./transactions')(self.options);
 }
 
 Balance.prototype.calculateBalance = function (account) {

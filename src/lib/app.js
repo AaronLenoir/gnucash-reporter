@@ -1,5 +1,5 @@
 const Emitter = require("events").EventEmitter,
-      gnucash = require("./gnucash/gnucash-reader.js"),
+      gnucash = require("./gnucash/reader.js"),
       util = require("util"),
       View = require("./view");
 

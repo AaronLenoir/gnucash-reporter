@@ -16,7 +16,7 @@ function appendChildAccounts (data, parentGuid) {
 }
 
 function GetAccounts (options) {
-  let data = require('./gnucash-data')(options);
+  let data = require('./data')(options);
   return appendChildAccounts(data.getAccounts());
 }
 

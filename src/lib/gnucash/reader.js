@@ -8,7 +8,7 @@ const Reader = function (options) {
 Reader.prototype.GetAccounts = function () {
   let self = this;
 
-  return require('../gnucash/gnucash-balance')({ path: self.options.path });
+  return require('../gnucash/balance')({ path: self.options.path });
 };
 
 module.exports.createReader = function (options) {

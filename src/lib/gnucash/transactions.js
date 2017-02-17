@@ -9,7 +9,7 @@ function Transactions (options) {
 Transactions.prototype.find = function (accountGuid) {
   let self = this;
 
-  let data = require('./gnucash-data')(self.options);
+  let data = require('./data')(self.options);
   return data.getTransactionsForAccount(accountGuid);
 };
 

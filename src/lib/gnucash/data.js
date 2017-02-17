@@ -2,7 +2,7 @@
 
 const fs = require('fs'),
       sql = require('sql.js'),
-      db = require('./gnucash-db');
+      db = require('./db');
 
 function Data (options) {
   let self = this;
