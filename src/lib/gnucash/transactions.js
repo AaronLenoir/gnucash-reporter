@@ -1,5 +1,7 @@
 'use strict';
 
+const getData = require('./data');
+
 function Transactions(options) {
   let self = this;
 
@@ -9,7 +11,7 @@ function Transactions(options) {
 Transactions.prototype.find = function (accountGuid) {
   let self = this;
 
-  let data = require('./data')(self.options);
+  let data = getData(self.options);
   return data.getTransactionsForAccount(accountGuid);
 };
 

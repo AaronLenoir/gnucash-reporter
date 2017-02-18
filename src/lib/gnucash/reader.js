@@ -1,5 +1,7 @@
 'use strict';
 
+const getBalance = require('../gnucash/balance');
+
 const Reader = function (options) {
   let self = this;
   self.options = options;
@@ -8,7 +10,7 @@ const Reader = function (options) {
 Reader.prototype.GetAccounts = function () {
   let self = this;
 
-  return require('../gnucash/balance')({
+  return getBalance({
     path: self.options.path
   });
 };

@@ -1,13 +1,15 @@
 'use strict';
 
+const getAccounts = require('./accounts');
+const getTransactions = require('./transactions');
 const math = require('./math');
 
 function Balance(options) {
   let self = this;
 
   self.options = options;
-  self.accounts = require('./accounts')(self.options);
-  self.transactions = require('./transactions')(self.options);
+  self.accounts = getAccounts(self.options);
+  self.transactions = getTransactions(self.options);
 }
 
 Balance.prototype.calculateBalance = function (account) {
