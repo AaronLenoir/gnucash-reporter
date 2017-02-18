@@ -4,9 +4,11 @@
 </div>
 
 <script>
-  (function () {
+  let Home = new (function () {
     const app = require("./lib/app");
     const View = require("./lib/view");
+
+    let self = this;
 
     app.on(app.events.accountsRead, function (accounts) {
       showAccountTree(accounts);
@@ -19,6 +21,24 @@
       });
     };
 
+    self.expand = function (sender, accountJson) {
+      let account = JSON.parse(accountJson);
+      var view = new View('accounts');
+      $(sender).toggleClass('hidden');
+      $(sender).next('.collapse').toggleClass('hidden');
+      view.toHtml([account], function (html) {
+        $(sender).parent().after(html);
+      });
+    };
+
+    self.collapse = function (sender) {
+      $(sender).parent().next().remove();
+      $(sender).toggleClass('hidden');
+      $(sender).parent().children('.expand').toggleClass('hidden');
+    };
+
     app.emit(app.events.readAccounts);
-  }());
+  })();
+
+
 </script>

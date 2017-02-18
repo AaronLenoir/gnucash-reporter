@@ -1,12 +1,14 @@
 <div>
   {{#each this}}
-    <ul>
+    <div>
     {{#each children}}
-      <li class="account">
+      <div class="account">
         <span class="account-title">{{description}}</span>
         <div class="account-details">{{formatNumber balance style="currency" currency="EUR"}}</div>
-      </li>
+        <div class="tiny-button expand" onclick="Home.expand(this, '{{json this}}')">+</div>
+        <div class="tiny-button collapse hidden" onclick="Home.collapse(this, '{{json this}}')">-</div>
+      </div>
     {{/each}}
-    </ul>
+    </div>
   {{/each}}
 </div>

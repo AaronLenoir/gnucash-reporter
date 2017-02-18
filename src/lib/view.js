@@ -7,6 +7,10 @@ const HandlebarsIntl = require('handlebars-helper-intl');
 
 HandlebarsIntl.registerWith(Handlebars);
 
+Handlebars.registerHelper('json', function (context) {
+  return JSON.stringify(context);
+});
+
 var View = function (name) {
   var self = this;
   this.name = name;
