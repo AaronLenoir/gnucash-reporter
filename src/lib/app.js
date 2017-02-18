@@ -15,10 +15,10 @@ const App = function () {
   var self = this;
 
   self.events = {
-    openView: "open-view",
-    readAccounts: "read-accounts",
-    accountsRead: "accounts-read",
-    openFile: "open-file"
+    openView: 'open-view',
+    readAccounts: 'read-accounts',
+    accountsRead: 'accounts-read',
+    openFile: 'open-file'
   };
 
   self.getReader = function () {
@@ -28,7 +28,7 @@ const App = function () {
   self.on(self.events.openView, function (name, data) {
     let view = new View(name);
     view.toHtml(data, function (html) {
-      self.emit("view-rendered", html);
+      self.emit('view-rendered', html);
     });
   });
 
@@ -46,7 +46,7 @@ const App = function () {
     self.reader = gnucash.createReader({
       path: path
     });
-    self.emit(self.events.openView, "home");
+    self.emit(self.events.openView, 'home');
     settings.setPreviousFilePath(path);
   };
 
