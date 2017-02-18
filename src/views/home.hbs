@@ -1,6 +1,6 @@
 <h1>Account Overview</h1>
 
-<div id="viz">
+<div id="account-overview">
 </div>
 
 <script>
@@ -17,24 +17,27 @@
     let showAccountTree = function (accounts) {
       var view = new View("accounts");
       view.toHtml(accounts, function (html) {
-        $("#viz").html(html);
+        $("#account-overview").html(html);
       });
     };
 
     self.expand = function (sender, accountJson) {
       let account = JSON.parse(accountJson);
-      var view = new View('accounts');
+
       $(sender).toggleClass('hidden');
-      $(sender).next('.collapse').toggleClass('hidden');
+      $(sender).next('.account-collapse').toggleClass('hidden');
+
+      let view = new View('accounts');
       view.toHtml([account], function (html) {
-        $(sender).parent().after(html);
+        $(sender).parent().after(html).next().hide().show('slow');
       });
     };
 
     self.collapse = function (sender) {
-      $(sender).parent().next().remove();
+      var target = $(sender).parent().next();
+      $(sender).parent().next().hide('slow', function(){ target.remove(); });
       $(sender).toggleClass('hidden');
-      $(sender).parent().children('.expand').toggleClass('hidden');
+      $(sender).parent().children('.account-expand').toggleClass('hidden');
     };
 
     app.emit(app.events.readAccounts);

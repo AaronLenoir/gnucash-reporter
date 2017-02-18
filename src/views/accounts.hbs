@@ -1,14 +1,14 @@
-<div>
-  {{#each this}}
-    <div>
-    {{#each children}}
-      <div class="account">
-        <span class="account-title">{{description}}</span>
-        <div class="account-details">{{formatNumber balance style="currency" currency="EUR"}}</div>
-        <div class="expand " onclick="Home.expand(this, '{{json this}}')"><span class="fa fa-plus"></span></div>
-        <div class="collapse hidden " onclick="Home.collapse(this, '{{json this}}')"><span class="fa fa-minus"></span></div>
-      </div>
-    {{/each}}
+{{#each this}}
+  <div class="account-list">
+  {{#each children}}
+    <div class="account">
+      <span class="account-title">{{description}}</span>
+      <div class="account-details">{{formatNumber balance style="currency" currency="EUR"}}</div>
+      {{#if children.length}}
+      <div class="account-expand" onclick="Home.expand(this, '{{json this}}')"><span class="fa fa-plus"></span></div>
+      <div class="account-collapse hidden" onclick="Home.collapse(this, '{{json this}}')"><span class="fa fa-minus"></span></div>
+      {{/if}}
     </div>
   {{/each}}
-</div>
+  </div>
+{{/each}}

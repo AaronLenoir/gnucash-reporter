@@ -1,0 +1,61 @@
+
+
+#account-overview {
+  margin-left: -20px;
+}
+
+.account-list {
+  padding-left: 20px;
+}
+
+.account {
+  position: relative;
+
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 10px;
+  padding-bottom: 2px;
+
+  list-style: none;
+
+  color: #666666;
+  border: 1px solid #EFEFEF;
+  border-radius: .2em;
+}
+
+.account:hover {
+  background-color: #EFEFEF;
+}
+
+.account-title {
+  font-weight: bold;
+}
+
+.account-details {
+  padding-top: .2em;
+
+  font-size: smaller;
+  font-weight: lighter;
+}
+
+.account-expand {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  margin: 5px;
+  margin-right: 10px;
+
+  cursor: default;
+}
+
+.account-collapse {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  margin: 5px;
+  margin-right: 10px;
+
+  cursor: default;
+}
