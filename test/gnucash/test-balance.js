@@ -33,10 +33,30 @@ describe('Balance', function () {
 
 describe('Balance', function () {
   describe('#balance()', function () {
+    let expected = 'Activa';
+    it(`First account should have ${expected} as description. `,
+      function () {
+        assert.equal(expected, accounts[0].children[0].description);
+      });
+  });
+});
+
+describe('Balance', function () {
+  describe('#balance()', function () {
     let expected = 1123.45;
     it(`Second account should have ${expected} as balance. `,
       function () {
         assert.equal(expected, accounts[0].children[1].balance);
+      });
+  });
+});
+
+describe('Balance', function () {
+  describe('#balance()', function () {
+    let expected = 'Inkomsten';
+    it(`Second account should have ${expected} as description. `,
+      function () {
+        assert.equal(expected, accounts[0].children[1].description);
       });
   });
 });
@@ -53,10 +73,30 @@ describe('Balance', function () {
 
 describe('Balance', function () {
   describe('#balance()', function () {
+    let expected = 'Uitgaven';
+    it(`Third account should have ${expected} as description. `,
+      function () {
+        assert.equal(expected, accounts[0].children[2].description);
+      });
+  });
+});
+
+describe('Balance', function () {
+  describe('#balance()', function () {
     let expected = 0.00;
     it(`Fourth account should have ${expected} as balance. `,
       function () {
         assert.equal(expected, accounts[0].children[3].balance);
+      });
+  });
+});
+
+describe('Balance', function () {
+  describe('#balance()', function () {
+    let expected = 'Vermogen';
+    it(`Fourth account should have ${expected} as description. `,
+      function () {
+        assert.equal(expected, accounts[0].children[3].description);
       });
   });
 });
