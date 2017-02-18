@@ -4,8 +4,7 @@
   "description": "Shows informational reports about GnuCash data.",
   "main": "src/main.js",
   "scripts": {
-    "start": "electron .",
-    "test": "./node_modules/mocha/bin/mocha src/test"
+    "start": "electron ."
   },
   "keywords": [],
   "author": "Aaron Lenoir",
