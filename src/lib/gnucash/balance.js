@@ -2,7 +2,7 @@
 
 const math = require('./math');
 
-function Balance (options) {
+function Balance(options) {
   let self = this;
 
   self.options = options;
@@ -15,16 +15,20 @@ Balance.prototype.calculateBalance = function (account) {
 
   let result = 0.0;
   let transactions = self.transactions.find(account.guid);
-  for(let i = 0; i < transactions.length; i++) {
+  for (let i = 0; i < transactions.length; i++) {
     let transaction = transactions[i];
-    result += math.getDecimal(transaction.quantity_num, transaction.quantity_denom);
+    result += math.getDecimal(
+      transaction.quantity_num,
+      transaction.quantity_denom);
   }
 
-  for(let i = 0; i < account.children.length; i++) {
+  for (let i = 0; i < account.children.length; i++) {
     result += self.calculateBalance(account.children[i]);
   }
 
-  if (account.account_type === "INCOME") { result *= -1; } /* ?? */
+  if (account.account_type === "INCOME") {
+    result *= -1;
+  } /* ?? */
 
   return result;
 };

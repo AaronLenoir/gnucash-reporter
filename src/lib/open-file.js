@@ -2,15 +2,18 @@
 
 const app = require('./app');
 
-const { dialog } = require('electron').remote;
+const {
+  dialog
+} = require('electron').remote;
 
-function openGnuCashFile (callback) {
+function openGnuCashFile(callback) {
   let result = dialog.showOpenDialog({
     title: "Open GnuCash File",
     defaultPath: `${__dirname}`,
-    filters: [
-      {name: 'GnuCash', extensions: ['gnucash']}
-    ],
+    filters: [{
+      name: 'GnuCash',
+      extensions: ['gnucash']
+    }],
     properties: [
       'openFile'
     ]

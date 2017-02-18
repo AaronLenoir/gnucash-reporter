@@ -2,11 +2,13 @@
 
 const settings = require('electron-settings');
 
-function getPreviousFilePath (callback) {
-  settings.get('previousFilePath').then(val => { callback(val); });
+function getPreviousFilePath(callback) {
+  settings.get('previousFilePath').then(val => {
+    callback(val);
+  });
 }
 
-function setPreviousFilePath (path) {
+function setPreviousFilePath(path) {
   settings.set('previousFilePath', path);
 }
 

@@ -5,25 +5,25 @@ body {
 .nav {
   position: absolute;
   top: 0;
-  left: 0;
   bottom: 0;
-
-  margin: 0;
+  left: 0;
 
   width: 42px;
-
-  font-size: 2em;
-  color: #CCCCCC;
+  margin: 0;
   padding-top: 15px;
   padding-left: 10px;
 
+  color: #CCCCCC;
   background-color: #181818;
+
+  font-size: 2em;
 }
 
 .nav-item {
-  border-bottom: 1px solid #282828;
   padding-top: 10px;
   padding-bottom: 10px;
+
+  border-bottom: 1px solid #282828;
 }
 
 .nav-item:hover {
@@ -39,17 +39,16 @@ ul {
 }
 
 .account {
-  list-style: none;
-
   height: 40px;
+  margin-bottom: 10px;
   padding: 10px;
   padding-bottom: 2px;
-  margin-bottom: 10px;
+
+  list-style: none;
 
   color: #666666;
-
-  border-radius: .2em;
   border: 1px solid #EFEFEF;
+  border-radius: .2em;
 }
 
 .account:hover {
@@ -61,7 +60,8 @@ ul {
 }
 
 .account-details {
+  padding-top: .2em;
+
   font-size: smaller;
   font-weight: lighter;
-  padding-top: .2em;
 }

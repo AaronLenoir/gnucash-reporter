@@ -1,6 +1,6 @@
 'use strict';
 
-function Transactions (options) {
+function Transactions(options) {
   let self = this;
 
   self.options = options;

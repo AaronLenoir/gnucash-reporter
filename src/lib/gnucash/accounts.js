@@ -1,7 +1,9 @@
 'use strict';
 
-function appendChildAccounts (data, parentGuid) {
-  if (parentGuid === undefined) { parentGuid = null; }
+function appendChildAccounts(data, parentGuid) {
+  if (parentGuid === undefined) {
+    parentGuid = null;
+  }
 
   let childrenResult = [];
   for (let i = 0; i < data.length; i++) {
@@ -15,7 +17,7 @@ function appendChildAccounts (data, parentGuid) {
   return childrenResult;
 }
 
-function GetAccounts (options) {
+function GetAccounts(options) {
   let data = require('./data')(options);
   return appendChildAccounts(data.getAccounts());
 }

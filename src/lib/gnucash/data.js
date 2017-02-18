@@ -1,10 +1,10 @@
 'use strict';
 
-const fs = require('fs'),
-      sql = require('sql.js'),
-      db = require('./db');
+const fs = require('fs');
+const sql = require('sql.js');
+const db = require('./db');
 
-function Data (options) {
+function Data(options) {
   let self = this;
 
   self.path = options.path;
@@ -23,7 +23,9 @@ function Data (options) {
     // Converts (single) dataset to array of objects.
     let result = [];
 
-    if (data[0] === undefined) { return result; }
+    if (data[0] === undefined) {
+      return result;
+    }
 
     for (let rowId = 0; rowId < data[0].values.length; rowId++) {
       result[rowId] = {};
@@ -45,12 +47,18 @@ Data.prototype.getAccounts = function () {
 Data.prototype.getTransactionsForAccount = function (accountGuid) {
   let self = this;
 
-  return self.execToObject('select * from transactions inner join splits on transactions.guid = splits.tx_guid where splits.account_guid = "' + accountGuid +'"');
+  return self.execToObject(
+    `select * from transactions
+      inner join splits on transactions.guid = splits.tx_guid
+      where splits.account_guid = "${accountGuid}"`
+  );
 };
 
 module.exports = function (options) {
   if (!options || !options.path) {
-    throw new Error('Mandatory option "path" missing, should point to a gnucash sqlite file.');
+    throw new Error(
+      'Mandatory option "path" missing, should point to a gnucash sqlite file.'
+    );
   }
 
   return new Data(options);

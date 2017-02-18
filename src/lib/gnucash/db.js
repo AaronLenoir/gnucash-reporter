@@ -1,7 +1,7 @@
 'use strict';
 
-const fs = require('fs'),
-      sql = require('sql.js');
+const fs = require('fs');
+const sql = require('sql.js');
 
 let db, lastPath;
 
