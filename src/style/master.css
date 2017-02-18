@@ -68,25 +68,6 @@ ul {
   font-weight: lighter;
 }
 
-.tiny-button {
-  width: 16px;
-  height: 16px;
-
-  text-align: center;
-
-  border-radius: 2px;
-}
-
-.tiny-button:hover {
-  width: 16px;
-  height: 16px;
-
-  text-align: center;
-
-  border-radius: 2px;
-  background-color: #CFCFCF;
-}
-
 .expand {
   position: absolute;
   top: 0;

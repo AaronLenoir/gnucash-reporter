@@ -5,8 +5,8 @@
       <div class="account">
         <span class="account-title">{{description}}</span>
         <div class="account-details">{{formatNumber balance style="currency" currency="EUR"}}</div>
-        <div class="tiny-button expand" onclick="Home.expand(this, '{{json this}}')">+</div>
-        <div class="tiny-button collapse hidden" onclick="Home.collapse(this, '{{json this}}')">-</div>
+        <div class="expand " onclick="Home.expand(this, '{{json this}}')"><span class="fa fa-plus"></span></div>
+        <div class="collapse hidden " onclick="Home.collapse(this, '{{json this}}')"><span class="fa fa-minus"></span></div>
       </div>
     {{/each}}
     </div>
