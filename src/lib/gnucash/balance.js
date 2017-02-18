@@ -24,13 +24,14 @@ Balance.prototype.calculateBalance = function (account) {
       transaction.quantity_denom);
   }
 
+  if (account.account_type === 'INCOME' ||
+    account.account_type === 'EQUITY') {
+    result *= -1;
+  } /* ?? */
+
   for (let i = 0; i < account.children.length; i++) {
     result += self.calculateBalance(account.children[i]);
   }
-
-  if (account.account_type === "INCOME") {
-    result *= -1;
-  } /* ?? */
 
   return result;
 };

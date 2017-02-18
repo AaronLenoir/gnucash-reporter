@@ -2,7 +2,7 @@
   <div class="account-list">
   {{#each children}}
     <div class="account">
-      <span class="account-title">{{description}}</span>
+      <span class="account-title" title="{{description}}">{{name}}</span>
       <div class="account-details">{{formatNumber balance style="currency" currency="EUR"}}</div>
       {{#if children.length}}
       <div class="account-expand" onclick="Home.expand(this, '{{json this}}')"><span class="fa fa-plus"></span></div>
