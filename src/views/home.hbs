@@ -29,13 +29,13 @@
 
       let view = new View('accounts');
       view.toHtml([account], function (html) {
-        $(sender).parent().after(html).next().hide().show('slow');
+        $(sender).parent().after(html).next().hide().show('fast');
       });
     };
 
     self.collapse = function (sender) {
       var target = $(sender).parent().next();
-      $(sender).parent().next().hide('slow', function(){ target.remove(); });
+      $(sender).parent().next().hide('fast', function(){ target.remove(); });
       $(sender).toggleClass('hidden');
       $(sender).parent().children('.account-expand').toggleClass('hidden');
     };

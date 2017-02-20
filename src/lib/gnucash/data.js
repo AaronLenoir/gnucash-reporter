@@ -54,6 +54,15 @@ Data.prototype.getTransactionsForAccount = function (accountGuid) {
   );
 };
 
+Data.prototype.getPricesForCommodity = function (commodityGuid) {
+  let self = this;
+
+  return self.execToObject(
+    `select * from prices
+      where commodity_guid = "${commodityGuid}"`
+  );
+};
+
 module.exports = function (options) {
   if (!options || !options.path) {
     throw new Error(

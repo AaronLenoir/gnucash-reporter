@@ -2,6 +2,7 @@
 
 const getAccounts = require('./accounts');
 const getTransactions = require('./transactions');
+const getPrices = require('./prices');
 const math = require('./math');
 
 function Balance(options) {
@@ -10,6 +11,7 @@ function Balance(options) {
   self.options = options;
   self.accounts = getAccounts(self.options);
   self.transactions = getTransactions(self.options);
+  self.prices = getPrices(self.options);
 }
 
 Balance.prototype.calculateBalance = function (account) {
@@ -24,10 +26,16 @@ Balance.prototype.calculateBalance = function (account) {
       transaction.quantity_denom);
   }
 
+  // TODO: Clean this up.
   if (account.account_type === 'INCOME' ||
     account.account_type === 'EQUITY') {
     result *= -1;
-  } /* ?? */
+  }
+
+  if (account.account_type === 'MUTUAL') {
+    let price = self.prices.findMostRecentPrice(account.commodity_guid);
+    result *= math.getDecimal(price.value_num, price.value_denom);
+  }
 
   for (let i = 0; i < account.children.length; i++) {
     result += self.calculateBalance(account.children[i]);
