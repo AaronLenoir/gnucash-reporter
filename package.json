@@ -5,13 +5,23 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
-    "test": "mocha --recursive"
+    "test": "mocha --recursive",
+    "pack": "build --dir",
+    "dist": "build"
   },
+  "build": {
+    "appId": "com.aaronlenoir.gnucash-reporter",
+    "mac": {
+      "category": "public.app-category.finance"
+    }
+  },
+  "postinstall": "install-app-deps",
   "keywords": [],
   "author": "Aaron Lenoir",
   "license": "MIT",
   "devDependencies": {
     "electron": "^1.4.15",
+    "electron-builder": "^14.1.1",
     "electron-reload": "^1.1.0",
     "mocha": "^3.2.0"
   },
