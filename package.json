@@ -13,16 +13,21 @@
     "appId": "com.aaronlenoir.gnucash-reporter",
     "mac": {
       "category": "public.app-category.finance"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
     }
   },
   "postinstall": "install-app-deps",
   "keywords": [],
-  "author": "Aaron Lenoir",
+  "author": "Aaron Lenoir <info@aaronlenoir.com>",
   "license": "MIT",
   "devDependencies": {
     "electron": "^1.4.15",
     "electron-builder": "^14.1.1",
-    "electron-reload": "^1.1.0",
     "mocha": "^3.2.0"
   },
   "dependencies": {
@@ -31,6 +36,7 @@
     "handlebars": "^4.0.6",
     "handlebars-helper-intl": "^1.0.0-rc-2",
     "jquery": "^3.1.1",
-    "sql.js": "^0.4.0"
+    "sql.js": "^0.4.0",
+    "electron-reload": "^1.1.0"
   }
 }
