@@ -18,19 +18,8 @@ Balance.prototype.calculateBalance = function (account) {
   let self = this;
 
   let result = 0.0;
-  let transactions = self.transactions.find(account.guid);
-  for (let i = 0; i < transactions.length; i++) {
-    let transaction = transactions[i];
-    result += math.getDecimal(
-      transaction.quantity_num,
-      transaction.quantity_denom);
-  }
 
-  // TODO: Clean this up.
-  if (account.account_type === 'INCOME' ||
-    account.account_type === 'EQUITY') {
-    result *= -1;
-  }
+  result += self.transactions.sumAllTransactionsForAccount(account);
 
   if (account.account_type === 'MUTUAL') {
     let price = self.prices.findMostRecentPrice(account.commodity_guid);

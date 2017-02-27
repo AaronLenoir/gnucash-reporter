@@ -1,5 +1,6 @@
 'use strict';
 
+const assert = require('assert');
 const fs = require('fs');
 const sql = require('sql.js');
 const db = require('./db');
