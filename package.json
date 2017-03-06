@@ -6,10 +6,10 @@
   "scripts": {
     "start": "electron .",
     "test": "mocha --recursive",
-    "pack": "build --dir",
-    "dist": "build",
-    "pack-win": "build --dir --win",
-    "dist-win": "build --win"
+    "pack": "rimraf dist && rimraf dist && build --dir --win --linux",
+    "dist": "rimraf dist && build --win --linux",
+    "pack-win": "rimraf dist && build --dir --win",
+    "dist-win": "rimraf dist && build --win"
   },
   "build": {
     "appId": "com.aaronlenoir.gnucash-reporter",
@@ -18,13 +18,13 @@
     },
     "linux": {
       "target": [
-        "AppImage",
         "deb"
       ]
     },
     "win": {
       "target": [
-        "zip"
+        "zip",
+        "squirrel"
       ]
     }
   },
@@ -35,7 +35,9 @@
   "devDependencies": {
     "electron": "^1.4.15",
     "electron-builder": "^14.1.1",
-    "mocha": "^3.2.0"
+    "electron-builder-squirrel-windows": "^15.0.1",
+    "mocha": "^3.2.0",
+    "rimraf": "^2.6.1"
   },
   "dependencies": {
     "electron-settings": "^2.2.2",
